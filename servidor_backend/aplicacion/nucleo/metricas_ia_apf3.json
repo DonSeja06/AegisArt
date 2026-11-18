@@ -1,0 +1,157 @@
+{
+  "algoritmo": "Gradient Boosting — scikit-learn",
+  "tipo_aprendizaje": "Supervisado - Clasificación Binaria (Validado frente a K-Means e Isolation Forest)",
+  "variable_objetivo": "es_obra_sospechosa_target (0 = Obra Segura, 1 = Obra Sospechosa para Moderación US-09/US-10)",
+  "features": [
+    "similitud_phash",
+    "similitud_clip",
+    "similitud_maxima_catalogo",
+    "declarada_inspirada_us08",
+    "marca_ajena_detectada",
+    "densidad_bordes_canny",
+    "contraste_luminancia",
+    "entropia_visual",
+    "proporcion_tonos_calidos_piel",
+    "saturacion_media_hsv"
+  ],
+  "total_registros_dataset": 300,
+  "obras_base_distintas": 30,
+  "registros_entrenamiento_80": 240,
+  "registros_prueba_20": 60,
+  "limpieza_datos": {
+    "valores_nulos_encontrados": 0,
+    "duplicados_exactos": 0,
+    "balance_clases": {
+      "seguras_0": 150,
+      "sospechosas_1": 150
+    },
+    "estrategia_split": "GroupShuffleSplit 80/20 por obra base (cero fuga de datos entre variantes train/test)"
+  },
+  "accuracy_porcentaje": 93.33,
+  "precision_porcentaje": 93.33,
+  "recall_porcentaje": 93.33,
+  "f1_score_porcentaje": 93.33,
+  "roc_auc_porcentaje": 99.56,
+  "cv_f1_entrenamiento_porcentaje": 97.46,
+  "cordura_dominio": "10/11",
+  "matriz_confusion": [
+    [
+      28,
+      2
+    ],
+    [
+      2,
+      28
+    ]
+  ],
+  "importancia_caracteristicas": {
+    "similitud_phash": 0.3788,
+    "similitud_clip": 0.0053,
+    "similitud_maxima_catalogo": 0.1412,
+    "declarada_inspirada_us08": 0.0879,
+    "marca_ajena_detectada": 0.0136,
+    "densidad_bordes_canny": 0.1101,
+    "contraste_luminancia": 0.0306,
+    "entropia_visual": 0.1368,
+    "proporcion_tonos_calidos_piel": 0.0645,
+    "saturacion_media_hsv": 0.0312
+  },
+  "comparativa_algoritmos": [
+    {
+      "modelo": "Árbol de Decisión (DT)",
+      "enfoque": "Supervisado (Clasificación)",
+      "accuracy_porcentaje": 86.67,
+      "precision_porcentaje": 86.67,
+      "recall_porcentaje": 86.67,
+      "f1_score_porcentaje": 86.67,
+      "roc_auc_porcentaje": 95.22,
+      "cv_f1_porcentaje": 86.17,
+      "silhouette_score": null,
+      "cordura_dominio": "7/11"
+    },
+    {
+      "modelo": "Random Forest",
+      "enfoque": "Supervisado (Clasificación)",
+      "accuracy_porcentaje": 95.0,
+      "precision_porcentaje": 100.0,
+      "recall_porcentaje": 90.0,
+      "f1_score_porcentaje": 94.74,
+      "roc_auc_porcentaje": 100.0,
+      "cv_f1_porcentaje": 91.51,
+      "silhouette_score": null,
+      "cordura_dominio": "7/11"
+    },
+    {
+      "modelo": "Gradient Boosting",
+      "enfoque": "Supervisado (Clasificación)",
+      "accuracy_porcentaje": 93.33,
+      "precision_porcentaje": 93.33,
+      "recall_porcentaje": 93.33,
+      "f1_score_porcentaje": 93.33,
+      "roc_auc_porcentaje": 99.56,
+      "cv_f1_porcentaje": 97.46,
+      "silhouette_score": null,
+      "cordura_dominio": "10/11"
+    },
+    {
+      "modelo": "Regresión Logística",
+      "enfoque": "Supervisado (Clasificación)",
+      "accuracy_porcentaje": 96.67,
+      "precision_porcentaje": 96.67,
+      "recall_porcentaje": 96.67,
+      "f1_score_porcentaje": 96.67,
+      "roc_auc_porcentaje": 99.33,
+      "cv_f1_porcentaje": 93.7,
+      "silhouette_score": null,
+      "cordura_dominio": "9/11"
+    },
+    {
+      "modelo": "K-Vecinos (KNN, k=5)",
+      "enfoque": "Supervisado (Clasificación)",
+      "accuracy_porcentaje": 93.33,
+      "precision_porcentaje": 100.0,
+      "recall_porcentaje": 86.67,
+      "f1_score_porcentaje": 92.86,
+      "roc_auc_porcentaje": 99.67,
+      "cv_f1_porcentaje": 95.55,
+      "silhouette_score": null,
+      "cordura_dominio": "8/11"
+    },
+    {
+      "modelo": "SVM (Kernel RBF)",
+      "enfoque": "Supervisado (Clasificación)",
+      "accuracy_porcentaje": 96.67,
+      "precision_porcentaje": 100.0,
+      "recall_porcentaje": 93.33,
+      "f1_score_porcentaje": 96.55,
+      "roc_auc_porcentaje": 99.89,
+      "cv_f1_porcentaje": 94.43,
+      "silhouette_score": null,
+      "cordura_dominio": "8/11"
+    },
+    {
+      "modelo": "K-Means (k=2)",
+      "enfoque": "No Supervisado (Clustering)",
+      "accuracy_porcentaje": 60.0,
+      "precision_porcentaje": 57.14,
+      "recall_porcentaje": 80.0,
+      "f1_score_porcentaje": 66.67,
+      "cv_f1_porcentaje": null,
+      "silhouette_score": 0.3736,
+      "cordura_dominio": "N/A"
+    },
+    {
+      "modelo": "Isolation Forest",
+      "enfoque": "No Supervisado (Anomalías)",
+      "accuracy_porcentaje": 65.0,
+      "precision_porcentaje": 60.0,
+      "recall_porcentaje": 90.0,
+      "f1_score_porcentaje": 72.0,
+      "cv_f1_porcentaje": null,
+      "silhouette_score": null,
+      "cordura_dominio": "N/A"
+    }
+  ],
+  "justificacion_tecnica": "Se evaluaron 6 clasificadores supervisados y 2 algoritmos no supervisados (8 modelos en total) sobre 300 muestras reales. El aprendizaje supervisado (Gradient Boosting, F1 Test=93.33%, F1 CV=97.46%, generalización OOD=10/11) superó ampliamente a K-Means e Isolation Forest porque combina señales visuales/perceptuales (CLIP ViT-B/32, pHash, entropía, bordes Canny) con la regla contextual de autoría US-08 y marca DCT/DWT.",
+  "reglas_explicables": "|--- similitud_phash <= 95.35\n|   |--- entropia_visual <= 2.23\n|   |   |--- class: 1\n|   |--- entropia_visual >  2.23\n|   |   |--- densidad_bordes_canny <= 0.27\n|   |   |   |--- similitud_clip <= 93.85\n|   |   |   |   |--- saturacion_media_hsv <= 0.07\n|   |   |   |   |   |--- class: 1\n|   |   |   |   |--- saturacion_media_hsv >  0.07\n|   |   |   |   |   |--- class: 0\n|   |   |   |--- similitud_clip >  93.85\n|   |   |   |   |--- declarada_inspirada_us08 <= 0.50\n|   |   |   |   |   |--- class: 0\n|   |   |   |   |--- declarada_inspirada_us08 >  0.50\n|   |   |   |   |   |--- class: 0\n|   |   |--- densidad_bordes_canny >  0.27\n|   |   |   |--- similitud_maxima_catalogo <= 77.12\n|   |   |   |   |--- class: 1\n|   |   |   |--- similitud_maxima_catalogo >  77.12\n|   |   |   |   |--- class: 1\n|--- similitud_phash >  95.35\n|   |--- class: 1\n"
+}

@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --morado-oscuro: #22143b;
+  --morado-primario: #7b4dff;
+  --morado-hover: #673ab7;
+  --lavanda-suave: #f3effe;
+  --lavanda-borde: #e4dcfa;
+  --fondo-pagina: #fbfaff;
+  --blanco: #ffffff;
+  --texto-principal: #181127;
+  --texto-secundario: #6e677f;
+  --borde-gris: #e9e6f0;
+  --verde-exito: #129c68;
+  --verde-fondo: #e8f8f1;
+  --ambar-alerta: #c87a19;
+  --ambar-fondo: #fef5e7;
+  --azul-info: #2d68d8;
+  --azul-fondo: #eef4ff;
+  --rojo-error: #d93848;
+  --rojo-fondo: #fff2f4;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background-color: var(--fondo-pagina);
+  color: var(--texto-principal);
+  min-height: 100vh;
+}
+
+/* Botones estilo Figma */
+.btn-primario {
+  background-color: var(--morado-primario);
+  color: var(--blanco);
+  border: none;
+  border-radius: 10px;
+  padding: 12px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primario:hover:not(:disabled) {
+  background-color: var(--morado-hover);
+}
+
+.btn-primario:disabled {
+  background-color: #c5b3f9;
+  cursor: not-allowed;
+}
+
+.btn-secundario {
+  background-color: #f4f2f8;
+  color: var(--texto-principal);
+  border: 1px solid var(--borde-gris);
+  border-radius: 10px;
+  padding: 11px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.btn-secundario:hover {
+  background-color: #eae5f3;
+}
+
+/* Inputs y Formularios con estado de validación rojo */
+.grupo-campo {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.grupo-campo label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--texto-principal);
+}
+
+.input-aegis, .select-aegis, .textarea-aegis {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--borde-gris);
+  background-color: #fcfbfe;
+  font-size: 14px;
+  color: var(--texto-principal);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-aegis:focus, .select-aegis:focus, .textarea-aegis:focus {
+  border-color: var(--morado-primario);
+  box-shadow: 0 0 0 3px rgba(123, 77, 255, 0.12);
+}
+
+.input-error {
+  border-color: var(--rojo-error) !important;
+  background-color: var(--rojo-fondo) !important;
+}
+
+.texto-error {
+  font-size: 12px;
+  color: var(--rojo-error);
+  font-weight: 500;
+}
+
+.texto-ayuda {
+  font-size: 12px;
+  color: var(--texto-secundario);
+}
+
+/* Badges / Etiquetas de estado idénticos a Figma */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.badge-protegida {
+  background-color: var(--verde-fondo);
+  color: var(--verde-exito);
+}
+.badge-protegida::before { background-color: var(--verde-exito); }
+
+.badge-alerta {
+  background-color: var(--ambar-fondo);
+  color: var(--ambar-alerta);
+}
+.badge-alerta::before { background-color: var(--ambar-alerta); }
+
+.badge-monitoreo {
+  background-color: var(--azul-fondo);
+  color: var(--azul-info);
+}
+.badge-monitoreo::before { background-color: var(--azul-info); }
+
+.badge-inactivo {
+  background-color: #f1eff5;
+  color: #6e677f;
+}
+.badge-inactivo::before { background-color: #6e677f; }
+
+/* Tarjetas base */
+.tarjeta-blanca {
+  background: var(--blanco);
+  border: 1px solid var(--borde-gris);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+/* Layout con Sidebar (Tu espacio creativo) */
+.layout-espacio {
+  display: grid;
+  grid-template-columns: 255px 1fr;
+  min-height: 100vh;
+  background-color: var(--fondo-pagina);
+}
+
+.barra-lateral {
+  background-color: var(--blanco);
+  border-right: 1px solid var(--borde-gris);
+  padding: 22px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.marca-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--texto-principal);
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.icono-check-logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background-color: var(--lavanda-suave);
+  color: var(--morado-primario);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.caja-usuario-sidebar {
+  background-color: #f8f6fe;
+  border: 1px solid var(--lavanda-borde);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.avatar-nc {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: var(--lavanda-borde);
+  color: var(--morado-primario);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-radius: 10px;
+  color: var(--texto-secundario);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 4px;
+  transition: all 0.15s;
+}
+
+.nav-item:hover {
+  background-color: #f7f4fe;
+  color: var(--texto-principal);
+}
+
+.nav-item.activo {
+  background-color: var(--lavanda-suave);
+  color: var(--morado-primario);
+  font-weight: 600;
+}
+
+.caja-cuota-sidebar {
+  background-color: #faf8ff;
+  border: 1px solid var(--lavanda-borde);
+  border-radius: 14px;
+  padding: 14px;
+  margin-top: 20px;
+}
+
+.barra-progreso-fondo {
+  width: 100%;
+  height: 7px;
+  background-color: #e6e0f8;
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 8px 0;
+}
+
+.barra-progreso-relleno {
+  height: 100%;
+  background-color: var(--morado-primario);
+  border-radius: 999px;
+}
+
+.contenido-principal {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.barra-superior {
+  height: 64px;
+  border-bottom: 1px solid var(--borde-gris);
+  background: var(--blanco);
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cuerpo-vista {
+  padding: 32px 40px;
+  flex: 1;
+}
+
+.pie-vista {
+  padding: 16px 40px;
+  border-top: 1px solid var(--borde-gris);
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--texto-secundario);
+}
